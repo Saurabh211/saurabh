@@ -1,0 +1,39 @@
+                    Strings and Characters -
+A string is a series of characters, such as "hello, world". Swift strings are represented by the String type.The contents of a String can be accessed in various ways.
+Swift’s String and Character types provide a fast, Unicode-compliant way to work with text in your code. The syntax for string creation and manipulation is lightweight and readable, with a string literal syntax that is similar to C.
+String concatenation is combining two strings with the + operator, and string mutability is managed by choosing between a constant or a variable, just like any other value in Swift.
+Swift’s String type is a fast, modern string implementation. Every string is composed of encoding-independent Unicode characters, and gives support for accessing those characters in various Unicode representations.
+
+                    String Literals -
+We can include predefined String values in your code as string literals. A string literal is a sequence of characters surrounded by double quotation marks (").
+String literal as an initial value for a constant or variable:
+let someString = "Some string literal value"
+[Note that Swift infers a type of String for the someString constant because it’s initialized with a string literal value.]
+
+                    Multiline String Literals -
+If you need a string that spans several lines, use a multiline string literal which is defines as a sequence of characters surrounded by three double quotation marks:
+let quotation = """
+There is a person on the ground who chasing a girl. "Why the people are behaving like that?"I thought.
+"Initially he ws staring her very badly and try to pass comments on her"
+"""
+A multiline string literal includes all of the lines between its starting and ending quotation marks
+let singleLineString = "RajaRamMohanRai was a great social worker."
+let multilineString = """
+RajaRamMohanRai was a great social worker
+"""
+Both are same
+
+                Concatenating Strings and Characters :-
+String values can be concatenated together  with the addition operator "+" to create a new String value:
+let string1 = "hello"
+let string2 = " World!!!"
+var string3 = string1 + string2
+// string3 = "hello World!!!"
+You can also append a String value to an existing String variable with the addition assignment operator (+=):
+var string = "hello"
+string += string2
+// string = "hello World!!!"
+You can append a Character value to a String variable with the String type’s append() method:
+let atEnd: Character = "!"
+string.append(atEnd)
+// welcome now equals "hello World!!!"

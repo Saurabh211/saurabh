@@ -1,0 +1,33 @@
+        AUTOMATIC REFERENCE COUNTING:-
+Swift uses Automatic Reference Counting (ARC) to track and manage your app’s memory usage. In most cases, this means that memory management “just works” in Swift, and you do not need to think about memory management yourself
+
+                    How ARC Works :-
+Every time you create a new instance of a class, ARC allocates a chunk of memory to store information about that instance. This memory holds information about the type of the instance, together with the values of any stored properties associated with that instance.
+However, if ARC were to deallocate an instance that was still in use, it would no longer be possible to access that instance’s properties, or call that instance’s methods. Indeed, if you tried to access the instance, your app would most likely crash.
+To make this possible, whenever you assign a class instance to a property, constant, or variable, that property, constant, or variable makes a strong reference to the instance.
+
+                    ARC in Action :-
+Here’s an example of how Automatic Reference Counting works. This example starts with a simple class called Person, which defines a stored constant property called name:
+        1. class Person {
+        2. let name: String
+        3. init(name: String) {
+        4. self.name = name
+        5. print("\(name) is being initialized") 6. }
+        7. deinit {
+        8. print("\(name) is being deinitialized") 9. }
+        10. }
+The Person class has an initializer that sets the instance’s name property and prints a message to indicate that initialization is underway.
+The Person class also has a deinitializer that prints a message when an instance of the class is deallocated.
+The next code snippet defines three variables of type Person?, which are used to set up multiple references to a new Person instance in subsequent code snippets. Because these variables are of an optional type (Person?,
+not Person), they are automatically initialized with a value of nil, and do not currently reference a Personinstance.
+    1. var reference1: Person?
+    2. var reference2: Person?
+    3. var reference3: Person?
+You can now create a new Person instance and assign it to one of these three variables:
+    1. reference1 = Person(name: "John Appleseed")
+    2. // Prints "John Appleseed is being initialized"
+Note that the message "John Appleseed is being initialized" is printed at the point that you call the Personclass’s initializer. This confirms that initialization has taken place.
+If you assign the same Person instance to two more variables, two more strong references to that instance are established:
+    1. reference2 = reference1
+    2. reference3 = reference1
+

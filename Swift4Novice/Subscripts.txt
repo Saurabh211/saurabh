@@ -1,0 +1,46 @@
+                        SUBSCRIPT:-
+Accessing the element members of a collection, sequence and a list in Classes, Structures and Enumerations are carried out with the help of subscripts.
+For a single type, subscripts can range from single to multiple declarations. We can use the appropriate subscript to overload the type of index value passed to the subscript.
+Accessing the element members of a collection, sequence and a list in Classes, Structures and Enumerations are carried out with the help of subscripts.
+For a single type, subscripts can range from single to multiple declarations. We can use the appropriate subscript to overload the type of index value passed to the subscript.
+
+Syntax:-
+
+        > subscript(index: Int) −> Int {
+        > get {
+        > // used for subscript value declarations
+        > }
+        > set(newValue) {
+        > // definitions are written here
+        > }
+        > }
+
+eg...
+
+        > struct subexample {
+        > let decrementer: Int
+        > subscript(index: Int) -> Int {
+        > return decrementer / index
+        > }
+        > }
+        > let division = subexample(decrementer: 100)
+        > print("The number is divisible by \(division[9]) times")
+        > print("The number is divisible by \(division[2]) times")
+        > print("The number is divisible by \(division[3]) times")
+        > print("The number is divisible by \(division[5]) times")
+        > print("The number is divisible by \(division[7]) times")
+
+            When we run the above program using playground, we get the following result −
+
+        > The number is divisible by 11 times
+        > The number is divisible by 50 times
+        > The number is divisible by 33 times
+        > The number is divisible by 20 times
+        > The number is divisible by 14 times
+
+Swift 4 subscript supports single parameter to multiple parameter declarations for appropriate data types. The program declares 'Matrix' structure as a 2 * 2 dimensional array matrix to store 'Double' data types.
+
+New instance for the Matrix is created by passing row and column count to the initialize as shown below.
+
+        > var mat = Matrix(rows: 3, columns: 3)
+

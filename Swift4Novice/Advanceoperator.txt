@@ -1,0 +1,17 @@
+                Swift Bitwise Operators :-
+In swift, Bitwise operators enable us to work with raw data bits to perform bit by bit operation on data structure. Generally, these type of operators are used in assembly language, graphics programming and etc. These bitwise operators are very useful when we apply the encoding and decoding technique to our communication operators.
+
+            Swift Bitwise NOT Operator:-
+In swift, Bitwise NOT Operator (~) will invert all bits in input number like if we have positive bit (1) it inverts into negative (0) and vice versa.
+
+Following is the pictorial representation of bitwise not operator (~) in swift programming language.
+
+Swift Bitwise Not Operator with Examples
+Swift Bitwise AND Operator Syntax
+Generally, in swift Bitwise AND operator (&) is used to compare two input values and it return result as 1 only when both input bits are having a value 1 otherwise it will return 0.
+
+            Swift Bitwise OR Operator:-
+In swift, Bitwise OR operator (|) is used to compare the bits of two input numbers. The Bitwise OR operator returns 1 only when anyone of input bit is equal to 1 otherwise it will return 0.
+Swift Bitwise XOR Operator
+In swift, Bitwise XOR operator or Exclusive OR operator (^) is used to compare the bits of two numbers. The Bitwise XOR operator returns 1 only when input bits are different and it returns 0 incase input bits are same.
+

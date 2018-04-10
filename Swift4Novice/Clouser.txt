@@ -1,0 +1,56 @@
+                    CLOUSER:-
+Closures are deeply rooted within the Swift language. Most common use cases include completion blocks/callbacks, higher order functions, and syntactic sugars.
+        Closures take one of three forms:
+          *  Global functions
+          *  Nested functions
+          *  Closures expression
+
+* Closures are headless functions.
+*Closures are functions without the func keyword and the function name. They are also known as anonymous functions. They can’t be called by themselves like a function because they have no names. They are used in conjunction.
+
+                CLOSURES SYNTAX:-
+{  (Parameters) -> (return type) in
+       statements
+
+}
+
+            FUNCTION VS CLOSURE:-
+Here are the key differences to remember between a function and a closure:
+FUNCTION
+
+> has a name
+> has func keyword
+> has no in keyword
+
+CLOSURE
+
+> has no name
+> has no func keyword
+> has in keyword
+
+
+CALL
+Let’s call a function, then call a closure.
+giveAFunc()
+giveNoFunc()
+
+STEPS TO BECOME A CLOSURE
+
+1.Remove curly braces
+func sayHello(name: String) -> String
+return "Hello \(name)"
+
+2. Add in keyword between argument list and function body
+func sayHello(name: String) -> String in
+return "Hello \(name)"
+
+3. Remove func keyword and function name
+(name: String) -> String in
+return "Hello \(name)"
+
+4. Surround with curly braces
+{ (name: String) -> String in
+return "Hello \(name)"
+
+
+

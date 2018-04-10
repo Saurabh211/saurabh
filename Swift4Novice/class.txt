@@ -1,0 +1,57 @@
+            CLASSES AND STRUCTURES
+
+Classes and structures are general-purpose, constructs that become the building blocks of your program’s code.
+You define properties and methods to add functionality to your classes and structures by using exactly the same syntax as for constants, variables, and functions.
+An instance of a class is known as an object. However, Swift classes and structures are much closer in functionality than in other languages.
+
+        Contrast between Classes and Structures :-
+Classes and structures in Swift have many things in common. Both can:
+    • Define properties to store values
+    • Define methods to provide functionality
+Classes have additional capabilities that structures do not:
+    • Inheritance enables one class to inherit the characteristics of another.
+    • Type casting enables you to check and interpret the type of a class instance at runtime.
+Structures are always copied when they are passed around in your code, and do not use reference counting.
+
+                    Definition Syntax :-
+Classes and structures have a similar definition syntax.
+    1. class SomeClass {
+    2. // class definition goes here
+    3. }
+    4. struct SomeStructure {
+    5. // structure definition goes here
+    6. }
+Here’s an example of a structure definition and a class definition:
+    1. struct Resolution {
+    2. var width = 0
+    3. var height = 0
+    4. }
+    5. class VideoMode {
+    6. var resolution = Resolution()
+    7. var interlaced = false
+    8. var frameRate = 0.0
+    9. var name: String?
+    10. }
+
+                Class and Structure Instances :-
+The syntax for creating instances is very similar for both structures and classes:
+    1. let someResolution = Resolution()
+    2. let someVideoMode = VideoMode()
+
+                Accessing Properties :-
+You can access the properties of an instance using dot syntax.
+eg.. print("The width of someResolution is \(someResolution.width)")
+You can drill down into sub-properties, such as the width property in the resolution property of a VideoMode:
+    -> print("The width of someVideoMode is \(someVideoMode.resolution.width)")
+     // Prints "The width of someVideoMode is 0"
+You can also use dot syntax to assign a new value to a variable property:\
+    someVideoMode.resolution.width = 1280
+     print("The width of someVideoMode is now \(someVideoMode.resolution.width)")
+     // Prints "The width of someVideoMode is now 1280"
+
+
+
+     
+
+
+

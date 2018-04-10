@@ -1,0 +1,29 @@
+                    Enumeration:-
+An enumeration is a user-defined data type which consists of set of related values. For enumerated data type enum keyword is used.
+It is declared in a class and its values are accessed through the instance of that class.
+Initial member value is defined using enum intializers.
+Its functionality is also extended by ensuring standard protocol functionality.
+
+                    Syntax:-
+enum enumname {
+// enumeration values are described here
+}
+enum DaysofaWeek {
+case Sunday
+case Monday
+---
+case Saturday
+}
+var lang = names.Closures
+lang = .Closures
+switch lang {
+case .Swift:
+print("Welcome to Swift")
+case .Closures:
+print("Welcome to Closures")
+default:
+print("Introduction")
+}
+When we run the above program using playground, we get the following result −
+Welcome to Closures
+

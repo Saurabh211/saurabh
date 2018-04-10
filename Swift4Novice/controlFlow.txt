@@ -1,0 +1,51 @@
+                    CONTROL FLOW :-
+1.For-in loop -
+To perform a task several times , we use the ‘for-in loop’ to iterate over a sequence, such as an array, range of numbers or characters in the string.
+eg...
+var items = [1,2,3,4,5]
+for item in items {
+print(item)
+}
+The output would be as follows −
+1
+2
+3
+4
+5
+
+2.While loop -
+The While Loop is used to perform a task multiple times. It is used when we need to iterate over a condition until it becomes false.
+while (condition) {
+Statements; }
+eg..
+var i = 5
+while (i > 0) {
+print(i)
+i = i - 1;
+}
+}
+Output −
+5
+4
+3
+2
+1
+Repeat-while loop
+This is another version of while loop. In this loop, the control passes through the statement at least once before checking the condition. The syntax of the repeat-while loop is as follows −
+repeat  {
+statements
+}
+while(condition)
+eg...
+var i=5
+repeat {
+print(i)
+i = i - 1;
+}
+while (i>0)
+The output would be as follows −
+5
+4
+3
+2
+1 

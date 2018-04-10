@@ -1,0 +1,92 @@
+                    Error Handling:-
+Throwing initializers can propagate errors in the same way as throwing functions.
+eg...
+1. struct PurchasedSnack {
+2. let name: String
+3. init(name: String, vendingMachine:
+VendingMachine) throws {
+4. try vendingMachine.vend(itemNamed: name) 5. self.name = name
+6. }
+7. }
+                Handling Errors Using Do-Catch :-
+You use a do-catch statement to handle errors by running a block of code. If an error is thrown by the code in the do clause, it is matched against
+the catch clauses to determine which one of them can handle the error.
+Here is the general form of a do-catch statement:
+do{ try
+}catch       {
+} catch       where condition {
+} catch { statements
+expression
+statements
+pattern 1
+statements
+
+pattern 2
+
+statements
+
+•}
+
+You write a pattern after catch to indicate what errors that clause can handle. If a catch clause doesn’t have a pattern, the clause matches any error and binds the error to a local constant named error. For more information about pattern matching, see Patterns.
+For example, the following code matches against all three cases of the VendingMachineError enumeration.
+1. var vendingMachine = VendingMachine()
+2. vendingMachine.coinsDeposited = 8
+3. do {
+4. try buyFavoriteSnack(person: "Alice",
+vendingMachine: vendingMachine)
+5. print("Success! Yum.")
+6. } catch VendingMachineError.invalidSelection { 7. print("Invalid Selection.")
+8. } catch VendingMachineError.outOfStock {
+9. print("Out of Stock.")
+10. } catch VendingMachineError.insufficientFunds(let coinsNeeded) {
+11. print("Insufficient funds. Please insert an additional \(coinsNeeded) coins.")
+12. } catch {
+13. print("Unexpected error: \(error).")
+14. }
+15. // Prints "Insufficient funds. Please insert an
+additional 2 coins."
+
+ For example, the above example can be written so any error that isn’t a VendingMachineError is instead caught by the calling function:
+1. func nourish(with item: String) throws { 2. do {
+3. try vendingMachine.vend(itemNamed: item) 4. } catch is VendingMachineError {
+
+5. print("Invalid selection, out of stock, or not enough money.")
+6. } 7. }
+8.
+9. do {
+10. try nourish(with: "Beet-Flavored Chips")
+11. } catch {
+12. print("Unexpected non-vending-machine-related
+error: \(error)") 13. }
+14. // Prints "Invalid selection, out of stock, or not enough money."
+In the nourish(with:) function, if vend(itemNamed:) throws an error that’s one of the cases of
+the VendingMachineError enumeration, nourish(with:) handles the error by printing a message. Otherwise, nourish(with:) propagates the error to its call site. The error is then caught by the general catch clause.
+Converting Errors to Optional Values :-
+You use try? to handle an error by converting it to an optional value. If an error is thrown while evaluating the try? expression, the value of the expression is nil. For example, in the following code x and y have the same value and behavior:
+1. func someThrowingFunction() throws -> Int {
+2. // ...
+3. }
+4.
+5. let x = try? someThrowingFunction()
+6.
+7. let y: Int?
+8. do {
+9. y = try someThrowingFunction()
+10. } catch { 11. y = nil 12. }
+
+If someThrowingFunction() throws an error, the value
+of x and y is nil. Otherwise, the value of x and y is the value that the function returned. Note that x and y are an optional of whatever
+type someThrowingFunction()returns. Here the function returns an integer, so x and y are optional integers.
+Using try? lets you write concise error handling code when you want to handle all errors in the same way. For example, the following code uses several approaches to fetch data, or returns nil if all of the approaches fail.
+1. func fetchData() -> Data? {
+2. if let data = try? fetchDataFromDisk() { return
+data }
+3. if let data = try? fetchDataFromServer() { return
+data }
+4. return nil 5. }
+Disabling Error Propagation :-
+Sometimes you know a throwing function or method won’t, in fact, throw an error at runtime. On those occasions, you can write try! before the expression to disable error propagation and wrap the call in a runtime assertion that no error will be thrown. If an error actually is thrown, you’ll get a runtime error.
+                Specifying Cleanup Actions :-
+You use a defer statement to execute a set of statements just before code execution leaves the current block of code. This statement lets you do any
+necessary cleanup that should be performed regardless of howexecution leaves the current block of code—whether it leaves because an error was thrown or because of a statement such as return or break. For example, you can use a defer statement to ensure that file descriptors are closed and manually allocated memory is freed.
+

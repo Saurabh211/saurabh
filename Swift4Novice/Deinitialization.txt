@@ -1,0 +1,60 @@
+                    DEINITIALISATION:-
+Swift 4 handles the memory management of instances through automatic reference counting (ARC), as described in Automatic Reference Counting. For example, if you create a custom class to open a file and write some data to it, you might need to close the file before the class instance is deallocated.
+        1.var counter = 0; // for reference counting
+        2.class baseclass {
+        3.init() {
+        4.counter++;
+        5.}
+        6.deinit {
+        7.counter--;
+        8.}
+        9.}
+        10.var print: baseclass? = baseclass()
+        11.print(counter)
+        12.print = nil
+        13.print(counter)
+   When we run the above program using playground, we get the following result −
+        _
+        1
+        0
+    When print = nil statement is omitted the values of the counter retains the same since it is not deinitialized.
+     var counter = 0; // for reference counting
+        1.class baseclass {
+        2.init() {
+        3.counter++;
+        4.}
+        5.deinit {
+        6.counter--;
+        7.}
+        8.}
+        9.var print: baseclass? = baseclass()
+        10.print(counter)
+        11.print(counter)
+
+    When we run the above program using playground, we get the following result −
+        _
+        1
+        1
+ ARC keeps track of information about the relationships between our code instances to manage the memory resources effectively.
+
+                ARC Program:-
+        1.Live Demo
+        2.class StudDetails {
+        3.var stname: String!
+        4.var mark: Int!
+        5.init(stname: String, mark: Int) {
+        6.self.stname = stname
+        7.self.mark = mark
+        8.}
+        9.deinit {
+        10.print("Deinitialized \(self.stname)")
+        11.print("Deinitialized \(self.mark)")
+        12.}
+        13.}
+        14.let stname = "Swift 4"
+        15.let mark = 98
+        16.print(stname)
+        17.print(mark)
+
+
+
